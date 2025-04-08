@@ -1,54 +1,29 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite + React Query + Tailwind CSS + Shadcn
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Esta aplicación ha sido desarrollada como un proyecto práctico para poner a prueba y consolidar los conocimientos adquiridos en el desarrollo de aplicaciones modernas utilizando tecnologías populares del ecosistema de JavaScript. El objetivo principal es integrar y trabajar con las siguientes herramientas y librerías:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React: Para la construcción de interfaces de usuario dinámicas y reactivas.
+TypeScript: Para añadir tipado estático al proyecto, mejorando la robustez y el mantenimiento del código.
+Vite: Como herramienta de construcción y servidor de desarrollo rápido, optimizado para proyectos modernos.
+React Query: Para la gestión eficiente del estado remoto y el manejo de datos asíncronos.
+Tailwind CSS: Para el diseño de interfaces con un enfoque en utilidades, permitiendo un desarrollo rápido y consistente.
+Shadcn: Para componentes preconstruidos y estilizados que aceleran el desarrollo de UI.
+Este proyecto no tiene un propósito comercial, sino que está diseñado como un ejercicio de aprendizaje. A través de su desarrollo, se busca reforzar habilidades clave como:
 
-## Expanding the ESLint configuration
+Configuración de un entorno de desarrollo moderno.
+Uso de patrones y buenas prácticas en React y TypeScript.
+Gestión de datos asíncronos con React Query.
+Diseño de interfaces atractivas y responsivas con Tailwind CSS.
+Integración de componentes reutilizables con Shadcn.
+En resumen, esta aplicación sirve como un laboratorio de experimentación para aplicar y profundizar en las tecnologías mencionadas, consolidando así los conocimientos adquiridos en el desarrollo frontend.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Correr en desarrollo
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. Clonar el repositorio.
+2. Adquirir API_KEY en ```https://openweathermap.org/api```
+3. Crear una copia del ```.env.template``` y renombrarlo a ```.env``` y cambiar las variables de entorno.
+4. Instalar dependencias ```npm install```
+5. Correr el proyecto ```npm run dev```
