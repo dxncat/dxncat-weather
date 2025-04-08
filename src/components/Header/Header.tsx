@@ -21,11 +21,12 @@ export const Header = () => {
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur p-2 supports-[backdrop-filter]:bg-background/60">
             <div className="container mx-auto flex h-16 items-center justify-between px-4">
-                <Link to={"/"}>
-                    <Umbrella className={clsx(
-                        "font-extrabold size-14",
-                        !isDark ? "text-yellow-500" : "text-blue-500",
-                    )} />
+                <Link to={"/"} className="flex items-center gap-2">
+                    <img src="/dxncat-weather.png" alt="" className="size-14" />
+                    <p>
+                        <span className="text-2xl font-bold text-yellow-500">DXNCAT</span>
+                        <span className="text-2xl font-bold text-blue-500">Weather</span>
+                    </p>
                 </Link>
 
                 <div>

@@ -1,15 +1,21 @@
-import { AlertCoordinates, AlertPermission, Button, WeatherSkeleton } from "@/components"
-import { useGeolocation } from "@/hooks"
+import { AlertCoordinates, AlertPermission, AlertRetry, Button, CurrentWeather, WeatherSkeleton } from "@/components"
+import { useForecastQuery, useGeolocation, useReverseGeocodeQuery, useWeatherQuery } from "@/hooks"
 import { RefreshCw } from "lucide-react"
 
 export const WeatherDashboard = () => {
 
     const { coordinates, error: locationError, getLocation, isLoading: locationLoading } = useGeolocation()
 
+    const locationQuery = useReverseGeocodeQuery(coordinates)
+    const forecastQuery = useForecastQuery(coordinates)
+    const weatherQuery = useWeatherQuery(coordinates)
+
     const handleRefresh = () => {
         getLocation()
         if (coordinates) {
-            console.log("Ubicación actual:", coordinates)
+            weatherQuery.refetch()
+            locationQuery.refetch()
+            forecastQuery.refetch()
         }
     }
 
@@ -25,6 +31,18 @@ export const WeatherDashboard = () => {
         return <AlertCoordinates getLocation={getLocation} />
     }
 
+    const locationName = locationQuery.data?.[0]
+
+    if (weatherQuery.error || forecastQuery.error) {
+        return (
+            <AlertRetry handleRefresh={handleRefresh} />
+        )
+    }
+
+    if (!weatherQuery.data || !forecastQuery.data) {
+        return <WeatherSkeleton />
+    }
+
     return (
         <div className="space-y-4">
 
@@ -36,10 +54,22 @@ export const WeatherDashboard = () => {
                     variant="outline"
                     size={"icon"}
                     onClick={handleRefresh}
-                    disabled={locationLoading}
+                    disabled={weatherQuery.isFetching || forecastQuery.isFetching}
                 >
-                    <RefreshCw className="size-4" />
+                    <RefreshCw
+                        className={`size-4 ${weatherQuery.isFetching ? "animate-spin" : ""
+                            }`}
+                    />
                 </Button>
+            </div>
+
+            <div className="grid gap-6">
+                <div>
+                    <CurrentWeather
+                        data={weatherQuery.data}
+                        locationName={locationName}
+                    />
+                </div>
             </div>
 
         </div>
