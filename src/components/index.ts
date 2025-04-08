@@ -19,3 +19,5 @@ export * from "./Alerts/AlertRetry"
 export * from "./Weather/CurrentWeather"
 
 export * from "./HourlyTemperature/HourlyTemperature"
+
+export * from "./WeatherDetails/WeatherDetails"
