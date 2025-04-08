@@ -1,4 +1,4 @@
-import { AlertCoordinates, AlertPermission, AlertRetry, Button, CurrentWeather, WeatherSkeleton } from "@/components"
+import { AlertCoordinates, AlertPermission, AlertRetry, Button, CurrentWeather, HourlyTemperature, WeatherSkeleton } from "@/components"
 import { useForecastQuery, useGeolocation, useReverseGeocodeQuery, useWeatherQuery } from "@/hooks"
 import { RefreshCw } from "lucide-react"
 
@@ -24,7 +24,7 @@ export const WeatherDashboard = () => {
     }
 
     if (locationError) {
-        return <AlertPermission locationError={locationError} getLocation={getLocation} />
+        return <AlertPermission locationError={locationError} getLocation={getLocation} handleRefresh={handleRefresh} />
     }
 
     if (!coordinates) {
@@ -64,10 +64,15 @@ export const WeatherDashboard = () => {
             </div>
 
             <div className="grid gap-6">
-                <div>
+                <div className="flex flex-col lg:flex-row gap-4">
+
                     <CurrentWeather
                         data={weatherQuery.data}
                         locationName={locationName}
+                    />
+
+                    <HourlyTemperature
+                        data={forecastQuery.data}
                     />
                 </div>
             </div>
