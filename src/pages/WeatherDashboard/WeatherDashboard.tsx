@@ -1,4 +1,4 @@
-import { AlertPermission, Button, WeatherSkeleton } from "@/components"
+import { AlertCoordinates, AlertPermission, Button, WeatherSkeleton } from "@/components"
 import { useGeolocation } from "@/hooks"
 import { RefreshCw } from "lucide-react"
 
@@ -19,6 +19,10 @@ export const WeatherDashboard = () => {
 
     if (locationError) {
         return <AlertPermission locationError={locationError} getLocation={getLocation} />
+    }
+
+    if (!coordinates) {
+        return <AlertCoordinates getLocation={getLocation} />
     }
 
     return (

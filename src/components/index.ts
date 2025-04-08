@@ -12,4 +12,5 @@ export * from "./Header/Header"
 
 export * from "./LoadingSkeleton/WeatherSkeleton"
 
-export * from "./AlertPermission/AlertPermission"
+export * from "./Alerts/AlertPermission"
+export * from "./Alerts/AlertCoordinates"
