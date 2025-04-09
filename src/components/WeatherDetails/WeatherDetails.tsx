@@ -49,7 +49,7 @@ export function WeatherDetails({ data }: Props) {
     ]
 
     return (
-        <Card>
+        <Card className="h-72">
             <CardHeader>
                 <CardTitle>Detalles del clima</CardTitle>
             </CardHeader>

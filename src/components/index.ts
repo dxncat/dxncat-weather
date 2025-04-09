@@ -21,3 +21,5 @@ export * from "./Weather/CurrentWeather"
 export * from "./HourlyTemperature/HourlyTemperature"
 
 export * from "./WeatherDetails/WeatherDetails"
+
+export * from "./WeatherForecast/WeatherForecast"
