@@ -25,3 +25,5 @@ export * from "./WeatherDetails/WeatherDetails"
 export * from "./WeatherForecast/WeatherForecast"
 
 export * from "./CitySearch/CitySearch"
+
+export * from "./FavoriteButton/FavoriteButton"

@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Layout from './components/layout';
-import { ThemeProvider } from './context';
-import { CityPage, WeatherDashboard } from './pages';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { Toaster } from 'sonner';
+import { ThemeProvider } from './context';
+import { CityPage, WeatherDashboard } from './pages';
+import Layout from './components/layout';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,6 +29,7 @@ function App() {
               <Route path='/city/:cityName' element={<CityPage />} />
             </Routes>
           </Layout>
+          <Toaster richColors />
         </ThemeProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
