@@ -16,7 +16,7 @@ export function AlertPermission({ locationError, getLocation, handleRefresh }: P
                 <AlertTitle>Error de locación</AlertTitle>
                 <AlertDescription className="flex flex-col gap-4">
                     <p>{locationError}</p>
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 flex-col sm:flex-row">
 
                         <Button variant="outline" onClick={getLocation} className="w-fit">
                             <MapPin className="mr-2 h-4 w-4" />
