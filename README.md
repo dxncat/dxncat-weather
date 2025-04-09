@@ -20,5 +20,5 @@ En resumen, esta aplicación sirve como un laboratorio de experimentación para 
 1. Clonar el repositorio.
 2. Adquirir API_KEY en ```https://openweathermap.org/api```
 3. Crear una copia del ```.env.template``` y renombrarlo a ```.env``` y cambiar las variables de entorno.
-4. Instalar dependencias ```npm install```
-5. Correr el proyecto ```npm run dev```
+4. Instalar dependencias ```pnpm install```
+5. Correr el proyecto ```pnpm run dev```
