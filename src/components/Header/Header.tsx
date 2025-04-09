@@ -31,7 +31,7 @@ export const Header = () => {
                     </p>
                 </Link>
 
-                <div>
+                <div className="flex gap-4">
 
                     <CitySearch />
 
