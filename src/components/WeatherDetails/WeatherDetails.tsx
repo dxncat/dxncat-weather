@@ -1,7 +1,6 @@
 import { WeatherData } from "@/interfaces";
 import { format } from "date-fns";
 import { Compass, Gauge, Sunrise, Sunset } from "lucide-react";
-import { title } from "process";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 interface Props {
@@ -49,7 +48,7 @@ export function WeatherDetails({ data }: Props) {
     ]
 
     return (
-        <Card className="h-72">
+        <Card className="h-full md:h-72">
             <CardHeader>
                 <CardTitle>Detalles del clima</CardTitle>
             </CardHeader>

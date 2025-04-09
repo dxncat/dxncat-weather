@@ -1,4 +1,4 @@
-import { AlertCoordinates, AlertPermission, AlertRetry, Button, CurrentWeather, HourlyTemperature, WeatherDetails, WeatherForecast, WeatherSkeleton } from "@/components"
+import { AlertCoordinates, AlertPermission, AlertRetry, Button, CurrentWeather, FavoriteSection, History, HourlyTemperature, WeatherDetails, WeatherForecast, WeatherSkeleton } from "@/components"
 import { useForecastQuery, useGeolocation, useReverseGeocodeQuery, useWeatherQuery } from "@/hooks"
 import { RefreshCw } from "lucide-react"
 
@@ -80,6 +80,11 @@ export const WeatherDashboard = () => {
                 <div className="grid gap-6 md:grid-cols-2 items-start">
                     <WeatherDetails data={weatherQuery.data} />
                     <WeatherForecast data={forecastQuery.data} />
+                </div>
+
+                <div className="grid gap-6 md:grid-cols-2 items-start">
+                    <FavoriteSection />
+                    <History />
                 </div>
             </div>
 
