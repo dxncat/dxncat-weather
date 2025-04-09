@@ -15,7 +15,7 @@ export const Header = () => {
             const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
             setTheme(systemTheme);
         }
-    }, [theme])
+    }, [theme, setTheme]);
 
     const isDark = theme === "dark"
 

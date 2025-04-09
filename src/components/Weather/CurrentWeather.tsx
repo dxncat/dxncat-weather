@@ -1,6 +1,5 @@
 import { GeocodingResponse, WeatherData } from "@/interfaces";
 import { Card, CardContent } from "../ui/card";
-import { spawn } from "child_process";
 import { ArrowDown, ArrowUp, Droplets, Wind } from "lucide-react";
 
 interface Props {
