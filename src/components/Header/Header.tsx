@@ -4,6 +4,7 @@ import { Moon, Sun, Umbrella } from "lucide-react"
 import { useEffect } from "react";
 
 import { Link } from "react-router-dom"
+import { CitySearch } from "../CitySearch/CitySearch";
 
 export const Header = () => {
 
@@ -31,6 +32,9 @@ export const Header = () => {
                 </Link>
 
                 <div>
+
+                    <CitySearch />
+
                     <div
                         onClick={() => setTheme(isDark ? "light" : "dark")}
                         className={`flex items-center cursor-pointer transition-transform duration-500 ${isDark ? "rotate-180" : "rotate-0"}`}

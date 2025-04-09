@@ -1,4 +1,4 @@
-import { Coordinates, ForecastData, GeocodingResponse, WeatherCondition, WeatherData } from "@/interfaces"
+import { Coordinates, ForecastData, GeocodingResponse, WeatherData } from "@/interfaces"
 import { API_CONFIG } from "./config"
 
 class WeatherAPI {
@@ -61,6 +61,15 @@ class WeatherAPI {
 
         return this.fetchData<GeocodingResponse[]>(url)
     }
+
+    async searchLocations(query: string): Promise<GeocodingResponse[]> {
+        const url = this.createUrl(`${API_CONFIG.GEO}/direct`, {
+            q: query,
+            limit: "5",
+        });
+        return this.fetchData<GeocodingResponse[]>(url);
+    }
+
 }
 
 export const weatherAPI = new WeatherAPI()

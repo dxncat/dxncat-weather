@@ -23,3 +23,5 @@ export * from "./HourlyTemperature/HourlyTemperature"
 export * from "./WeatherDetails/WeatherDetails"
 
 export * from "./WeatherForecast/WeatherForecast"
+
+export * from "./CitySearch/CitySearch"
