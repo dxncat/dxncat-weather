@@ -16,29 +16,39 @@ export function History() {
             </CardHeader>
             <CardContent>
                 <ScrollArea className="h-full md:h-44">
-                    <div className="grid gap-6">
-                        {history.map((item) => (
-                            <Link key={item.id} to={`/city/${item.name}?lat=${item.lat}?lon=${item.lon}`}>
-                                <div className="flex justify-between gap-3 rounded-lg border p-4">
-                                    <p className="flex items-center text-sm font-medium leading-none">
-                                        <Clock className="mr-2 h-4 w-4 text-muted-foreground" />
-                                        <span>{item.name}</span>
-                                        {item.state && (
+                    {
+                        history.length > 0 ? (
+                            <div className="grid gap-6">
+                                {history.map((item) => (
+                                    <Link key={item.id} to={`/city/${item.name}?lat=${item.lat}?lon=${item.lon}`}>
+                                        <div className="flex justify-between gap-3 rounded-lg border p-4">
+                                            <p className="flex items-center text-sm font-medium leading-none">
+                                                <Clock className="mr-2 h-4 w-4 text-muted-foreground" />
+                                                <span>{item.name}</span>
+                                                {item.state && (
+                                                    <span className="text-sm text-muted-foreground">
+                                                        , {item.state}
+                                                    </span>
+                                                )}
+                                                <span className="text-sm text-muted-foreground">
+                                                    , {item.country}
+                                                </span>
+                                            </p>
                                             <span className="text-sm text-muted-foreground">
-                                                , {item.state}
+                                                {format(item.searchedAt, "MMM d, h:mm a", { locale: es })}
                                             </span>
-                                        )}
-                                        <span className="text-sm text-muted-foreground">
-                                            , {item.country}
-                                        </span>
-                                    </p>
-                                    <span className="text-sm text-muted-foreground">
-                                        {format(item.searchedAt, "MMM d, h:mm a", { locale: es })}
-                                    </span>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="flex items-center justify-center h-full">
+                                <p className="text-sm text-muted-foreground">
+                                    No tienes historial de búsqueda. Realiza una búsqueda para ver el historial aquí.
+                                </p>
+                            </div>
+                        )
+                    }
                 </ScrollArea>
             </CardContent>
         </Card>
